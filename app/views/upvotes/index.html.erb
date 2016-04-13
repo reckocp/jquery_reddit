@@ -1,0 +1,11 @@
+
+<h1> All Upvotes </h1>
+
+
+<div>
+  <ol>
+  <% @upvotes.each do |upvote| %>
+    <li><p><%= upvote.link.title %> </p>
+  <% end %>
+  </ol>
+</div>

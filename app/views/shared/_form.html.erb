@@ -1,0 +1,32 @@
+<div class='row'>
+  <div class='twelve columns'>
+
+    <% if @link && @link.errors %>
+     <% @link.errors.full_messages.each do |msg| %>
+       <p class='form-error'> <%= msg %> </p>
+     <% end %>
+   <% end %>
+
+    <%= form_for Link.new do |l| %>
+      <div class='row'>
+        <div class='three columns'>
+          <%= l.label :title %>
+          <%= l.text_field :title, class: 'input-field title', placeholder: "www.google.com" %>
+        </div>
+
+        <div class='three columns'>
+          <%= l.label :body %>
+          <%= l.text_field :body, class: 'input-field body', placeholder: "Add a description here..." %>
+        </div>
+
+        <div class='three columns'>
+          <%= l.label :user_id %>
+          <%= l.select :user_id, options_for_select(User.all.map { |user| [user.username, user.id] }), class: 'input-field user_id', placeholder: "Type here..." %>
+        </div>
+      </div>
+      <div class='row'>
+        <%= l.submit %>
+      </div>
+    <% end %>
+  </div>
+</div>
