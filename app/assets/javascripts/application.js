@@ -18,3 +18,9 @@
 $("#highlighter").on("click", function () {
        $("#links-children li:first").toggleClass("change-color");
 });
+
+$("#highlighter").on("click",function () {
+    var count = $(this).data("count") || 0;
+    $(this).data("count", ++count);
+    console.log("Link clicked " + count + " times.");
+});
